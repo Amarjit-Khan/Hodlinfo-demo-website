@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+*,
+:after,
+:before {
+    box-sizing: border-box;
+}
+
+body {
+    color: #ffffff;
+    background-color: #191d28;
+    font-family: Oswald, sans-serif;
+}
+
+.grey {
+    color: #818389;
+}
+
+.green {
+    color: #5dc7c2;
+}
+
+.red {
+    color: #da5757;
+}
+
+.grid {
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+.center {
+    text-align: center;
+}
+
+.text_center {
+    font-size: 28px;
+}
+
+.tel-button {
+    margin: 10px;
+    padding: 6px 20px;
+    border-radius: 10px;
+    background-color: #3dc6c1;
+    color: #fff !important;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: Oswald, sans-serif;
+}
+
+.mid_bar {
+    flex-direction: row;
+    justify-content: space-around !important;
+}
+
+.per {
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.time {
+    opacity: .45;
+    font-weight: 300;
+}
+
+.rupee {
+    padding-bottom: 10px;
+    font-weight: 400;
+    font-size: 80px;
+}
+
+.text_center2 {
+    opacity: .45;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: .75px;
+    margin: 2rem 0;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    margin: 0;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.table_head {
+    font-family: Oswald;
+    font-size: 24px;
+    opacity: .45;
+    letter-spacing: 1px;
+    margin: 0 0 -5px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #fff;
+    padding: 0 12px;
+}
+
+.table_row {
+    background-color: #2e3241;
+}
+
+.row_item {
+    /* color: #fff; */
+    padding-top: 15px;
+    padding-bottom: 15px;
+    vertical-align: middle !important;
+    text-align: center !important;
+    font-size: 24px;
+}
+
+.round_border1 {
+    border-radius: 10px 0 0 10px;
+}
+
+.round_border2 {
+    border-radius: 0 10px 10px 0;
+}
+
+.footer-box {
+    box-sizing: border-box;
+}
+
+.footer {
+    border-top: 2px solid #2e3241;
+    bottom: 0;
+    position: absolute;
+    padding: 13px;
+    width: 100%;
+}
+
+.footer-text {
+    color: #888686;
+    white-space: nowrap;
+    padding-right: 12px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.footer-text-link {
+    color: #888686;
+    /* color: #007bff; */
+    text-decoration: none;
+    background-color: transparent;
+    white-space: nowrap;
+    padding-right: 12px;
+    font-size: 12px;
+    font-weight: 400;
+}

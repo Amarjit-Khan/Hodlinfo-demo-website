@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="../public/HODLINFO.8f78fc06.png" alt="logo" />
+        </div>
+        <div class="drop">
+            <a href="" class="header_button">INR<i class="ri-arrow-drop-down-fill arrow"></i></a>
+            <a href="" class="header_button">BTC<i class="ri-arrow-drop-down-fill arrow"></i></a>
+            <a href="" class="header_button">BUY BTC</a>
+        </div>
+        <div class="button">
+            <button class="tel-button">Connect Telegram</button>
+            <div class="slider-button">
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round">
+                    </span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="text_center grey center">
+        Best Price to Trade
+    </div>
+
+    <div class="mid_bar flex">
+        <div class="item">
+            <div class="per green center">0.29 %</div>
+            <div class="time center">5 Mins</div>
+        </div>
+        <div class="item">
+            <div class="per green center">1.06 %</div>
+            <div class="time center">1 Hour</div>
+        </div>
+        <div class="item">
+            <div class="rupee center">₹ 24,77,484</div>
+        </div>
+        <div class="item">
+            <div class="per green center">9.57 %</div>
+            <div class="time center">1 Day</div>
+        </div>
+        <div class="item">
+            <div class="per green center">13.62 %</div>
+            <div class="time center">7 Days</div>
+        </div>
+    </div>
+
+    <div class="text_center2 center">Average BTC/INR net price including
+        commission</div>
+
+    <div class="price_list">
+        <div class="table">
+            <div class="table_head">
+                <div>
+                    <h4 class="table_head-data">#</h4>
+                </div>
+                <div>
+                    <h4 class="table_head-data">Name</h4>
+                </div>
+                <div>
+                    <h4 class="table_head-data">Last</h4>
+                </div>
+                <div>
+                    <h4 class="table_head-data">Buy/Sell Price</h4>
+                </div>
+                <div>
+                    <h4 class="table_head-data">Volume</h4>
+                </div>
+                <div>
+                    <h4 class="table_head-data">Base Unit</h4>
+                </div>
+            </div>
+            <div class="table-body">
+                <div id="table_row"></div>
+                <script id="document-template" type="text/x-handlebars-template">
+                    {{#each this}}
+                    <div class="table_row">
+                        <div class="row_item round_border1">1</div>
+                        <div class="row_item">{{name}}</div>
+                        <div class="row_item">{{last}}</div>
+                        <div class="row_item">{{buy}} / {{sell}}</div>
+                        <div class="row_item red">{{volume}}</div>
+                        <div class="row_item round_border2 green">{{base_unit}}</div>
+                    </div>
+                    {{/each}}
+                </script>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer center">
+        <div class="flex text-center footer-box">
+            <div class="footer-text">Copyright © 2019</div>
+            <div class="footer-text">HodlInfo.com</div>
+            <div class="footer-text">
+                <a href="/" class="footer-text-link" style="margin-left: auto;">Support</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    $(async function () {
+
+        const res = await fetch("http://localhost:5000/add_details", {
+            method: "POST",
+        })
+
+        const response = await fetch("http://localhost:5000/get_details", {
+            method: "GET",
+            limit: 10
+        })
+
+        const data = await response.json();
+        console.log(data);
+        var source = $("#document-template").html();
+        var template = Handlebars.compile(source);
+        var html = template(data);
+        $('#table_row').html(html);
+    });
+</script>
+
+</html>
